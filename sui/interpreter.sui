@@ -1,0 +1,170 @@
+[ g0 0     ; code
+= g1 0     ; code length
+= g2 0     ; program counter
+= g3 3000  ; tape length
+[ g4 g3    ; tape
+= g5 0     ; head
+
+# 0 1 {
+[ g0 a0
+= g1 a0
+}
+
+# 1 2 {
+{ g0 a0 a1
+}
+
+# 2 0 {  ; run
+@ 0
+: 1
+] v1 g0 g2
+~ v2 v1 0
+! v2 v2
+? v2 3
+] v3 g4 g5
++ v3 v3 1
+$ v3 3 v3
+{ g4 g5 v3
+@ 2
+: 3
+~ v2 v1 1
+! v2 v2
+? v2 4
+] v3 g4 g5
+- v3 v3 1
+$ v3 3 v3
+{ g4 g5 v3
+@ 2
+: 4
+~ v2 v1 2
+! v2 v2
+? v2 5
++ g5 g5 1
+$ g5 4 g5
+@ 2
+: 5
+~ v2 v1 3
+! v2 v2
+? v2 6
+- g5 g5 1
+$ g5 4 g5
+@ 2
+: 6
+~ v2 v1 4
+! v2 v2
+? v2 7
+, v3  ; not implemented in sui2wasm (always returns 0)
+$ v3 3 v3
+{ g4 g5 v3
+@ 2
+: 7
+~ v2 v1 5
+! v2 v2
+? v2 8
+] v3 g4 g5
+. v3
+@ 2
+: 8
+~ v2 v1 6
+! v2 v2
+? v2 9
+] v3 g4 g5
+> v3 v3 0
+? v3 2
+= v3 1
+@ 11
+: 12
++ g2 g2 1
+] v4 g0 g2
+~ v5 v4 6
+! v5 v5
+? v5 13
++ v3 v3 1
+@ 13
+: 13
+~ v5 v4 7
+! v5 v5
+? v5 14
+- v3 v3 1
+@ 14
+: 14
+< v5 g2 g1
+? v5 11
+^ 1
+: 11
+> v4 v3 0
+? v4 12
+@ 9
+: 9
+~ v2 v1 7
+! v2 v2
+? v2 2
+= v3 1
+@ 16
+: 17
+- g2 g2 1
+] v4 g0 g2
+~ v5 v4 7
+! v5 v5
+? v5 18
++ v3 v3 1
+@ 18
+: 18
+~ v5 v4 6
+! v5 v5
+? v5 19
+- v3 v3 1
+@ 19
+: 19
+> v5 g2 -1
+? v5 16
+^ 2
+: 16
+> v4 v3 0
+? v4 17
+- g2 g2 1
+@ 2
+: 2
++ g2 g2 1
+@ 0
+: 0
+< v0 g2 g1
+? v0 1
+^ 0
+}
+
+# 3 1 {  ; validate sell value
+= v0 a0
+@ 0
+: 1
++ v0 v0 256
+: 0
+< v1 v0 0
+? v1 1
+@ 2
+: 3
+- v0 v0 256
+: 2
+> v1 v0 255
+? v1 3
+^ v0
+}
+
+# 4 1 {  ; validate head value
+= v0 a0
+@ 0
+: 1
++ v0 v0 g3
+: 0
+< v1 v0 0
+? v1 1
+@ 2
+: 3
+- v0 v0 g3
+: 2
+> v1 v0 g3
+~ v2 v0 g3
+| v1 v1 v2
+? v1 3
+^ v0
+}

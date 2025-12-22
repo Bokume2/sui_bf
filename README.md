@@ -11,5 +11,7 @@ Esolang狂は可読性の低い言語を見るとつい書いてみちゃうん�
 ## Usage
 
 ## License
+このソフトウェアはMIT Licenseの下に配布されています。  
+詳しくは[ライセンス表示](./LICENSE)や[https://www.tldrlegal.com/license/mit-license](https://www.tldrlegal.com/license/mit-license)などを参照して下さい。
 
 ## Contact

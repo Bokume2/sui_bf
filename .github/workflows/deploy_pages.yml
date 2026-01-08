@@ -6,6 +6,8 @@ on:
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
@@ -25,6 +27,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          ssh-key: ${{ secrets.DEPLOY_KEY }}
           branch: gh-pages
           folder: dist

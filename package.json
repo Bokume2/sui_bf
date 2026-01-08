@@ -4,8 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predev": "sui2wasm sui/interpreter.sui -o interpreter.wasm",
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "postbuild": "sui2wasm sui/interpreter.sui -o dist/interpreter.wasm",
     "lint": "eslint .",
     "preview": "vite preview"
   },

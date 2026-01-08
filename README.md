@@ -4,8 +4,6 @@ Esolang狂は可読性の低い言語を見るとつい書いてみちゃうん�
 
 ## Requirements
 
-## Installation
-
 ## Build
 
 ## Usage

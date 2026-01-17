@@ -56,15 +56,18 @@ function App() {
       <br />
       <TextAreaWithLabel
         textAreaName="コード" value={rawCode} onChange={e => setRawCode(e.target.value)}
-        autoComplete="off" autoFocus={true}
+        autoComplete="off" autoFocus={true} rows={16} cols={64}
       />
       <br />
       <RunButton instance={wasmInstance} clear={clear} handleError={handleError} code={code}>実行</RunButton>
       <br />
       <br />
-      <TextAreaWithLabel textAreaName="出力" value={stdout} disabled={true} />
+      <TextAreaWithLabel textAreaName="出力" value={stdout} rows={6} cols={64} disabled={true} />
       <br />
-      <TextAreaWithLabel textAreaName="エラー" value={stderr} disabled={true} />
+      <TextAreaWithLabel textAreaName="エラー" value={stderr} rows={6} cols={64} disabled={true} />
+      <br />
+      <p>Source code available at <a href="https://github.com/Bokume2/sui_bf" target="_blank" rel="norefferer noopener" title="Bokume2/sui_bf: Sui-BF - Brainf*ck Interpreter written in sui-lang">GitHub repository</a></p>
+      <p>Made with <a href="https://github.com/TakatoHonda/sui-lang" target="_blank" rel="norefferer noopener" title="TakatoHonda/sui-lang: 粋 (Sui) - A programming language optimized for LLM code generation">Sui</a></p>
     </>
   )
 }

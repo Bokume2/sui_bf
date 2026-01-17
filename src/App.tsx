@@ -65,6 +65,9 @@ function App() {
       <TextAreaWithLabel textAreaName="出力" value={stdout} disabled={true} />
       <br />
       <TextAreaWithLabel textAreaName="エラー" value={stderr} disabled={true} />
+      <br />
+      <p>Source code available at <a href="https://github.com/Bokume2/sui_bf" target="_blank" rel="norefferer noopener" title="Bokume2/sui_bf: Sui-BF - Brainf*ck Interpreter written in sui-lang">GitHub repository</a></p>
+      <p>Made with <a href="https://github.com/TakatoHonda/sui-lang" target="_blank" rel="norefferer noopener" title="TakatoHonda/sui-lang: 粋 (Sui) - A programming language optimized for LLM code generation">Sui</a></p>
     </>
   )
 }

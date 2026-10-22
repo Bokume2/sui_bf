@@ -20,6 +20,7 @@ jobs:
           pipx install sui-lang
           npm ci
           npm run build
+          sui2wasm sui/interpreter.sui -o dist/interpreter.wasm
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
